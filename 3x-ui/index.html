@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://wiki.amdcloud.kz/3x-ui/">
       
       
-        <link rel="prev" href="../telegram/">
+        <link rel="prev" href="../network/">
       
       
         <link rel="next" href="../nekoray/">
@@ -273,7 +273,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../network/" class="md-tabs__link">
           
   
   Network
@@ -628,6 +628,27 @@
             Network
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1282,19 +1303,19 @@
                   
 
 
-<h1 id="3x-ui">3x-ui</h1>
+<h1 id="3x-ui">3x-ui<a class="headerlink" href="#3x-ui" title="Permanent link">#</a></h1>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>Don't pay for the "private" guides, no one will tell you anything more, because there is no more functionality.</p>
 </div>
-<h2 id="setup-used">Setup used</h2>
+<h2 id="setup-used">Setup used<a class="headerlink" href="#setup-used" title="Permanent link">#</a></h2>
 <p>The setup was used in my case:</p>
 <ul>
 <li>OS: Ubuntu 22.04.5</li>
 <li>3x-ui Version: 2.4.11</li>
 <li>VPS: <a href="https://aeza.net/?ref=572663">Aéza</a></li>
 </ul>
-<h2 id="installation">Installation</h2>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <p>As soon as we log into the system after purchasing a VPS, we execute the following commands:</p>
 <ol>
 <li>
@@ -1324,8 +1345,8 @@ we answer "n".</p>
 <p>Go to Panel Settings, then to the Authentication section, and change the login details. In the General section, specify the path to the already created Public &amp; Private keys: /etc/ssl/certs/3x-ui.pem and /etc/ssl/certs/3x-ui.key. Scroll up, click Save, and restart the panel.</p>
 </li>
 </ol>
-<h2 id="securing-and-little-tweaks">Securing and little tweaks</h2>
-<h3 id="ssh">Ssh</h3>
+<h2 id="securing-and-little-tweaks">Securing and little tweaks<a class="headerlink" href="#securing-and-little-tweaks" title="Permanent link">#</a></h2>
+<h3 id="ssh">Ssh<a class="headerlink" href="#ssh" title="Permanent link">#</a></h3>
 <p>Changing ssh port is required since ISPs scan for open ports and trying to detect such VPS machine, which you use as proxy.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>nano<span class="w"> </span>/etc/ssh/sshd_config
 </code></pre></div>
@@ -1347,7 +1368,7 @@ we answer "n".</p>
 <p class="admonition-title">Warning</p>
 <p>Make sure your ufw is <strong>NOT</strong> running, so you can connect after you decide to reconnect. If you forgot to do add new port to ufw, then access your VPS by using VNC and make changes.</p>
 </div>
-<h3 id="fail2ban">Fail2ban</h3>
+<h3 id="fail2ban">Fail2ban<a class="headerlink" href="#fail2ban" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>apt<span class="w"> </span>install<span class="w"> </span>fail2ban<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ufw<span class="w"> </span>-y
 </code></pre></div>
 <p>After runnig <code>touch /etc/fail2ban/jail.local &amp;&amp; nano /etc/fail2ban/jail.local</code>
@@ -1366,7 +1387,7 @@ Copy and paste (ctrl + shift + v):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>x-ui
 </code></pre></div>
 <p>Type 20 (IP Limit Management) and press Enter. Then press 1 to install and type y.</p>
-<h3 id="ufw">Ufw</h3>
+<h3 id="ufw">Ufw<a class="headerlink" href="#ufw" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>nano<span class="w"> </span>/etc/ufw/before.rules
 </code></pre></div>
 <p>Change the values from <code>ACCEPT</code> to <code>DROP</code> and add new string, also with <code>DROP</code> value:</p>
@@ -1405,7 +1426,7 @@ Copy and paste (ctrl + shift + v):</p>
 Open the ports you need (SSH, 3x-ui, 443, and any others if you have additional services).
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ufw<span class="w"> </span>disable<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">222</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">443</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="o">{</span>panel_port<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
 </code></pre></div></p>
-<h3 id="bbr">BBR</h3>
+<h3 id="bbr">BBR<a class="headerlink" href="#bbr" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>In the terminal, type
@@ -1416,7 +1437,7 @@ Open the ports you need (SSH, 3x-ui, 443, and any others if you have additional 
 <p>Type 23 (Enable BBR) and select 1 (Enable BBR).</p>
 </li>
 </ol>
-<h2 id="ssl-management">SSL Management</h2>
+<h2 id="ssl-management">SSL Management<a class="headerlink" href="#ssl-management" title="Permanent link">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This step is only required if you don't want to use the least secure connection. If you don't really care, move to the next step: <a href="https://wiki.amdcloud.kz/3x-ui/#reality">Reality</a>.</p>
@@ -1438,8 +1459,8 @@ Open the ports you need (SSH, 3x-ui, 443, and any others if you have additional 
 </code></pre></div>
 <div class="highlight"><span class="filename">crontab</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="m">0</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span>/acme.sh<span class="w"> </span>--cron<span class="w"> </span>--home<span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">80</span>/tcp
 </code></pre></div>
-<h2 id="setting-up">Setting up</h2>
-<h3 id="reality">Reality</h3>
+<h2 id="setting-up">Setting up<a class="headerlink" href="#setting-up" title="Permanent link">#</a></h2>
+<h3 id="reality">Reality<a class="headerlink" href="#reality" title="Permanent link">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Easy, but less secure. Doesn't require SSL Management to be set up.  </p>
@@ -1465,7 +1486,7 @@ Open the ports you need (SSH, 3x-ui, 443, and any others if you have additional 
 You are supposed to test it yourself because it works differently on each VPS, ISP, and even OS.  </li>
 </ul>
 <p>Click on the QR code icon next to the created client, then click the QR code to copy it to the clipboard, and paste it into Nekoray/Streisand.</p>
-<h3 id="tls">TLS</h3>
+<h3 id="tls">TLS<a class="headerlink" href="#tls" title="Permanent link">#</a></h3>
 <p>Install nginx first:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>apt<span class="w"> </span>install<span class="w"> </span>nginx
 </code></pre></div>
@@ -1505,7 +1526,7 @@ You are supposed to test it yourself because it works differently on each VPS, I
 <p>After its all done we need to close port <code>80/tcp</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">80</span>/tcp
 </code></pre></div>
-<h2 id="clean-up">Clean-up</h2>
+<h2 id="clean-up">Clean-up<a class="headerlink" href="#clean-up" title="Permanent link">#</a></h2>
 <p>Finally, clean up, reboot, and you're ready to use it.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoclean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>clean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>reboot
 </code></pre></div></p>
@@ -1546,6 +1567,34 @@ You are supposed to test it yourself because it works differently on each VPS, I
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/prettyleaf" class="md-author" title="@prettyleaf">
+          
+          <img src="https://avatars.githubusercontent.com/u/81024464?v=4&size=72" alt="prettyleaf">
+        </a>
+      
+        <a href="https://github.com/Varmilov" class="md-author" title="@Varmilov">
+          
+          <img src="https://avatars.githubusercontent.com/u/73475011?v=4&size=72" alt="Varmilov">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
@@ -1607,9 +1656,9 @@ You are supposed to test it yourself because it works differently on each VPS, I
       
         
         <a
-          href="../telegram/"
+          href="../network/"
           class="md-footer__link md-footer__link--prev"
-          aria-label="Previous: Telegram"
+          aria-label="Previous: Apps"
           rel="prev"
         >
           <div class="md-footer__button md-icon">
@@ -1620,7 +1669,7 @@ You are supposed to test it yourself because it works differently on each VPS, I
               <span class="md-footer__direction">
                 Previous
               </span>
-              Telegram
+              Apps
             </div>
           </div>
         </a>

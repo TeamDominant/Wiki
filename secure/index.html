@@ -271,7 +271,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../3x-ui/" class="md-tabs__link">
+        <a href="../network/" class="md-tabs__link">
           
   
   Network
@@ -631,6 +631,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../3x-ui/" class="md-nav__link">
         
   
@@ -887,7 +908,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#optional-strengthening-hsts" class="md-nav__link">
+  <a href="#optional---strengthening-hsts" class="md-nav__link">
     <span class="md-ellipsis">
       Optional - Strengthening HSTS
     </span>
@@ -1204,7 +1225,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#optional-strengthening-hsts" class="md-nav__link">
+  <a href="#optional---strengthening-hsts" class="md-nav__link">
     <span class="md-ellipsis">
       Optional - Strengthening HSTS
     </span>
@@ -1246,17 +1267,17 @@
                   
 
 
-<h1 id="securing-swag">Securing SWAG</h1>
+<h1 id="securing-swag">Securing SWAG<a class="headerlink" href="#securing-swag" title="Permanent link">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Little disclaimer. Some information was copied from <a href="https://virtualize.link/">virtualize.link</a>, because I find information provided by its author useful. Make sure to check the <a href="https://github.com/quietsy/advanced-configurations">source</a> or star the repo.</p>
 </div>
 <p><a href="https://github.com/linuxserver/docker-swag">SWAG</a> - Secure Web Application Gateway (formerly known as linuxserver/letsencrypt) is a full fledged web server and reverse proxy with Nginx, PHP7, Certbot (Let's Encrypt™ client) and Fail2Ban built in. SWAG allows you to expose applications to the internet, doing so comes with a risk and there are security measures that help reduce that risk. This article details how to configure SWAG and enhance it's security.</p>
-<h2 id="requirements">Requirements</h2>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <ul>
 <li>A working instance of <a href="https://github.com/linuxserver/docker-swag">SWAG</a></li>
 </ul>
-<h2 id="monitor-swag">Monitor SWAG</h2>
+<h2 id="monitor-swag">Monitor SWAG<a class="headerlink" href="#monitor-swag" title="Permanent link">#</a></h2>
 <p>Use monitoring solutions such as <a href="https://github.com/linuxserver/docker-mods/tree/swag-dashboard">SWAG Dashboard</a> to keep an eye on the traffic going through SWAG and check for suspicious activity such as:</p>
 <ul>
 <li>A lot of hits from a country unrelated to your users</li>
@@ -1264,7 +1285,7 @@
 <li>Referers that shouldn't refer to your domain</li>
 <li>A lot of hits on status codes that are not 2xx</li>
 </ul>
-<h2 id="internal-applications">Internal Applications</h2>
+<h2 id="internal-applications">Internal Applications<a class="headerlink" href="#internal-applications" title="Permanent link">#</a></h2>
 <p>Internal applications can be proxied through SWAG in order to use <code>app.mydomain.com</code> instead of ip:port, and block them externally so only your local network could access them.</p>
 <p>Create a file called <code>nginx/internal.conf</code> with the following configuration:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">allow</span><span class="w"> </span><span class="mi">192</span><span class="s">.168.1.0/24</span><span class="p">;</span><span class="w"> </span><span class="c1">#Replace with your LAN subnet</span>
@@ -1297,7 +1318,7 @@
 <p>One way to securely access internal applications from the internet is through a VPN, for example WireGuard:</p>
 <p><a href="https://hub.docker.com/r/linuxserver/wireguard">WireGuard Container</a></p>
 <p><a href="https://blog.linuxserver.io/2019/11/16/setting-up-wireguard-on-opnsense-android/">WireGuard on OPNSense</a></p>
-<h2 id="fail2ban">Fail2Ban</h2>
+<h2 id="fail2ban">Fail2Ban<a class="headerlink" href="#fail2ban" title="Permanent link">#</a></h2>
 <p>Fail2Ban is an intrusion prevention software that protects external applications from brute-force attacks. Attackers that fail to login to your applications a certain number of times will get blocked from accessing all of your applications.
 Fail2Ban looks for failed login attempts in log files, counts the failed attempts in a short period, and bans the IP address of the attacker.</p>
 <p>Mount the application logs to SWAG's container by adding a volume for the log to the compose yaml:
@@ -1346,7 +1367,7 @@ The logpath is slightly different for applications that have multiple log files 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker exec swag fail2ban-client unban &lt;ip address&gt;
 </code></pre></div></p>
 <p>This great mod sends a discord notification when Fail2Ban blocks an attack: <a href="https://github.com/linuxserver/docker-mods/tree/swag-f2bdiscord">f2bdiscord</a>.</p>
-<h2 id="geoblock">Geoblock</h2>
+<h2 id="geoblock">Geoblock<a class="headerlink" href="#geoblock" title="Permanent link">#</a></h2>
 <p>Geoblock reduces the attack surface of SWAG by restricting access based on countries.</p>
 <p>Enable geoblock using either <a href="https://github.com/linuxserver/docker-mods/tree/swag-dbip">DBIP mod</a> or <a href="https://github.com/linuxserver/docker-mods/tree/swag-maxmind">Maxmind mod</a>, follow the mod's instructions to set it up.</p>
 <p>The mods come with 3 definitions for <code>$geo-whitelist</code>, <code>$geo-blacklist</code>, <code>$lan-ip</code>.</p>
@@ -1409,8 +1430,8 @@ Or
 <a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="p">}</span>
 </code></pre></div>
 <p>Add the lines to every external application based on your needs.</p>
-<h2 id="nginx-configuration">NGINX Configuration</h2>
-<h3 id="x-robots-tag">X-Robots-Tag</h3>
+<h2 id="nginx-configuration">NGINX Configuration<a class="headerlink" href="#nginx-configuration" title="Permanent link">#</a></h2>
+<h3 id="x-robots-tag">X-Robots-Tag<a class="headerlink" href="#x-robots-tag" title="Permanent link">#</a></h3>
 <p>You can prevent applications from appearing in results of search engines and web crawlers, regardless of whether other sites link to it. It doesn't work on all search engines and web crawlers, but it significantly reduces the amount.</p>
 <p>Add the X-Robots-Tag config line to <code>ssl.conf</code> to enable it on <strong>all</strong> of your applications:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>add_header X-Robots-Tag &quot;noindex, nofollow, nosnippet, noarchive&quot;;
@@ -1418,13 +1439,13 @@ Or
 <p>Disable on a specific application and allow search engines to display it by add the following line to the application config inside the server tag:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>add_header X-Robots-Tag &quot;&quot;;
 </code></pre></div></p>
-<h3 id="hsts">HSTS</h3>
+<h3 id="hsts">HSTS<a class="headerlink" href="#hsts" title="Permanent link">#</a></h3>
 <p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism that helps to protect websites against man-in-the-middle attacks such as protocol downgrade attacks and cookie hijacking. It allows web servers to declare that web browsers (or other complying user agents) should automatically interact with it using only HTTPS connections, which provide Transport Layer Security (TLS/SSL), unlike the insecure HTTP used alone.</p>
 <p><strong>HSTS requires a working SSL certificate on your domains before enabling it.</strong></p>
 <p>Enable HSTS by uncommenting the HSTS config line in ssl.conf:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>add_header Strict-Transport-Security &quot;max-age=63072000; includeSubDomains; preload&quot; always;
 </code></pre></div></p>
-<h4 id="optional-strengthening-hsts">Optional - Strengthening HSTS</h4>
+<h4 id="optional---strengthening-hsts">Optional - Strengthening HSTS<a class="headerlink" href="#optional---strengthening-hsts" title="Permanent link">#</a></h4>
 <p>After enabling the HSTS header, users are still vulnerable to attack if they access an HSTS‑protected website over HTTP when they have:</p>
 <ul>
 <li>Never before visited the site</li>
@@ -1437,7 +1458,7 @@ Or
 </ul>
 <p>To address this, Google maintains a “HSTS preload list” of web domains and subdomains that use HSTS and have submitted their names to <a href="https://hstspreload.org/">HSTS Preload</a>. This domain list is distributed and hardcoded into major web browsers. Clients that access web domains in this list automatically use HTTPS and refuse to access the site using HTTP.</p>
 <p>Be aware that once you set the STS header or submit your domains to the HSTS preload list, it is impossible to remove it. It’s a one‑way decision to make your domains available over HTTPS.</p>
-<h2 id="authelia">Authelia</h2>
+<h2 id="authelia">Authelia<a class="headerlink" href="#authelia" title="Permanent link">#</a></h2>
 <p>Authelia is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. Refer to this <a href="https://blog.linuxserver.io/2020/08/26/setting-up-authelia/">blog post to configure Authelia</a>.</p>
 
 
@@ -1476,6 +1497,29 @@ Or
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/prettyleaf" class="md-author" title="@prettyleaf">
+          
+          <img src="https://avatars.githubusercontent.com/u/81024464?v=4&size=72" alt="prettyleaf">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

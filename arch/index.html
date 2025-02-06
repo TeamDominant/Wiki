@@ -269,7 +269,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../3x-ui/" class="md-tabs__link">
+        <a href="../network/" class="md-tabs__link">
           
   
   Network
@@ -621,6 +621,27 @@
             Network
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1190,13 +1211,13 @@
                   
 
 
-<h1 id="arch-linux">Arch Linux</h1>
-<h2 id="arch-fun-from-installing-the-system-to-useful-programs">Arch Fun: From Installing the System to Useful Programs</h2>
+<h1 id="arch-linux">Arch Linux<a class="headerlink" href="#arch-linux" title="Permanent link">#</a></h1>
+<h2 id="arch-fun-from-installing-the-system-to-useful-programs">Arch Fun: From Installing the System to Useful Programs<a class="headerlink" href="#arch-fun-from-installing-the-system-to-useful-programs" title="Permanent link">#</a></h2>
 <p><em>Arch Linux</em> is an independently developed <code>x86-64</code> GNU/Linux distribution designed for general purposes. It aims to provide the latest stable versions of most software, adhering to a rolling release model. Arch is installed as a minimal base system and is configured by the user to meet their specific needs, allowing the creation of a unique environment by installing only the necessary components.</p>
 <p>Essentially, it’s a blank slate, running on the Linux kernel and equipped with a basic set of commands. It ships without a GUI (Graphical User Interface).</p>
 <p>To put it simply: Arch is for <em>gentlemen</em>, while Ubuntu is for the <em>mainstream crowd</em> who want everything handed to them on a silver platter.</p>
 <p>This guide will be updated and expanded over time — stay tuned! </p>
-<h3 id="preparation-of-installation-image">Preparation of Installation Image</h3>
+<h3 id="preparation-of-installation-image">Preparation of Installation Image<a class="headerlink" href="#preparation-of-installation-image" title="Permanent link">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We want to emphasize that Linux systems can be installed almost anywhere: on a desktop, a laptop, a USB drive, or even a phone (if the distribution supports it). The installation process is roughly the same, but there are differences that need to be understood. For example, when installing Arch Linux as a second system, you'll need to manually configure efibootmgr. Additionally, there are differences in setting up dual boot on a machine with BIOS versus UEFI.</p>
@@ -1239,8 +1260,8 @@ After downloading the image, open Rufus.</p>
 Enter the BIOS of the machine and disable Secure Boot (you can enable it again after the installation is complete).<br />
 Now, we can boot from the USB. When the machine boots from the USB, you'll see a menu. Select the first option <strong>Arch Linux install medium</strong>, and wait for the system to load.</p>
 <p><img alt="start_arch" src="../images/arch/Arch_install1.png" /></p>
-<h2 id="installation-with-dual-boot">Installation with dual-boot</h2>
-<h3 id="1-network-settings">1. Network settings</h3>
+<h2 id="installation-with-dual-boot">Installation with dual-boot<a class="headerlink" href="#installation-with-dual-boot" title="Permanent link">#</a></h2>
+<h3 id="1-network-settings">1. Network settings<a class="headerlink" href="#1-network-settings" title="Permanent link">#</a></h3>
 <p>Setting Up a Wireless Network</p>
 <p>If you are connected via a wired connection, simply check if it works using the following command:</p>
 <div class="highlight"><pre><span></span><code>ping archlinux.org
@@ -1278,7 +1299,7 @@ Now, we can boot from the USB. When the machine boots from the USB, you'll see a
 <p>Ensure the network is connected.</p>
 <div class="highlight"><pre><span></span><code>ping archlinux.org
 </code></pre></div>
-<h3 id="2-disk-partitioning">2. Disk Partitioning</h3>
+<h3 id="2-disk-partitioning">2. Disk Partitioning<a class="headerlink" href="#2-disk-partitioning" title="Permanent link">#</a></h3>
 <p>There are two utilities for disk partitioning:</p>
 <ul>
 <li><strong>fdisk</strong></li>
@@ -1367,7 +1388,7 @@ mount /dev/sda1 /mnt/boot
 </code></pre></div>
 <p>Check <code>lsblk</code></p>
 <p><img alt="final_lsblk" src="../images/arch/finish_lsblk.png" /></p>
-<h3 id="3-installing">3. Installing</h3>
+<h3 id="3-installing">3. Installing<a class="headerlink" href="#3-installing" title="Permanent link">#</a></h3>
 <p>Okay, we’re done with partitioning the disk. Now, let’s proceed with installing Arch with all the components.</p>
 <p><strong>Enter</strong> and <strong>wait</strong>:</p>
 <div class="highlight"><pre><span></span><code>archinstall
@@ -1477,7 +1498,7 @@ mount /dev/sda1 /mnt/boot
 <p>After the pre-installation setup, select <code>Install</code>.</p>
 <p>Then select <code>Yes</code> and wait for the installation to complete.</p>
 <p>Once the installation is complete. After the installation is complete, we are prompted to continue the setup in chroot. Select <code>Yes</code>.</p>
-<h3 id="4-grub-configuration">4. GRUB configuration</h3>
+<h3 id="4-grub-configuration">4. GRUB configuration<a class="headerlink" href="#4-grub-configuration" title="Permanent link">#</a></h3>
 <p><em>Now, let's set up dual-boot</em>. </p>
 <p>Enter the following command:</p>
 <div class="highlight"><pre><span></span><code>pacman -Sy efibootmgr dosfstools mtools
@@ -1555,6 +1576,29 @@ You can leave it as is or set a custom value, for example:</p>
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/Varmilov" class="md-author" title="@Varmilov">
+          
+          <img src="https://avatars.githubusercontent.com/u/73475011?v=4&size=72" alt="Varmilov">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
