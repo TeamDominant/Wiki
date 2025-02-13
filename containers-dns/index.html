@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://wiki.amdcloud.kz/telegram/">
+        <link rel="canonical" href="https://wiki.amdcloud.kz/containers-dns/">
       
       
-        <link rel="prev" href="../firefox/">
-      
-      
-        <link rel="next" href="../network/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../feed_rss_created.xml">
@@ -27,7 +23,7 @@
     
     
       
-        <title>Telegram - TeamDominant Wiki</title>
+        <title>DNS for Containers - TeamDominant Wiki</title>
       
     
     
@@ -64,11 +60,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Telegram - TeamDominant Wiki" >
+        <meta  property="og:title"  content="DNS for Containers - TeamDominant Wiki" >
       
         <meta  property="og:description"  content="Wiki and answers for most questions" >
       
-        <meta  property="og:image"  content="https://wiki.amdcloud.kz/assets/images/social/telegram.png" >
+        <meta  property="og:image"  content="https://wiki.amdcloud.kz/assets/images/social/containers-dns.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -76,15 +72,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://wiki.amdcloud.kz/telegram/" >
+        <meta  property="og:url"  content="https://wiki.amdcloud.kz/containers-dns/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Telegram - TeamDominant Wiki" >
+        <meta  name="twitter:title"  content="DNS for Containers - TeamDominant Wiki" >
       
         <meta  name="twitter:description"  content="Wiki and answers for most questions" >
       
-        <meta  name="twitter:image"  content="https://wiki.amdcloud.kz/assets/images/social/telegram.png" >
+        <meta  name="twitter:image"  content="https://wiki.amdcloud.kz/assets/images/social/containers-dns.png" >
       
     
     
@@ -107,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#telegram" class="md-skip">
+        <a href="#dns-for-containers" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Telegram
+              DNS for Containers
             
           </span>
         </div>
@@ -275,12 +271,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../apps/" class="md-tabs__link">
           
   
@@ -483,30 +477,25 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -517,7 +506,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Software
@@ -591,19 +580,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../telegram/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -612,7 +592,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1080,6 +1059,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adguardhome-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdguardHome Configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1093,7 +1107,71 @@
                   
 
 
-<h1 id="telegram">Telegram<a class="headerlink" href="#telegram" title="Permanent link">#</a></h1>
+<h1 id="dns-for-containers">DNS for Containers<a class="headerlink" href="#dns-for-containers" title="Permanent link">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Little disclaimer. Some information was copied from <a href="https://virtualize.link/">virtualize.link</a>, because I find information provided by its author useful. Make sure to check the <a href="https://github.com/quietsy/advanced-configurations">source</a> or star the repo.</p>
+</div>
+<h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">#</a></h2>
+<p>The common setup is to have a server with many containers, and a network DNS such as pihole or adguardhome.</p>
+<p>The issue is that all dns queries by the server and all containers are grouped into a single bucket on the network DNS, making it difficult to track malicious DNS queries by a single container.</p>
+<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">#</a></h2>
+<p><img alt="Container DNS" src="images/container-dns/containers-dns.png" /></p>
+<p>Create an adguardhome container for all the other containers to use as their DNS, and set the host as the upstream DNS for reverse lookups, so that container names will be displayed instead of IPs.</p>
+<p>These are the general steps with an example below:</p>
+<ul>
+<li>Create a bridge network with a static subnet.</li>
+<li>Create an adguardhome container with a static IP in that subnet.</li>
+<li>Assign all other containers static IPs in that subnet as well.</li>
+<li>Set the DNS of all other containers to the static IP of adguardhome.</li>
+<li>Set all other containers to depend on adguardhome.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">internal</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">ipam</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">config</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">subnet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.20.0.0/16</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">agh</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adguard/adguardhome</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agh</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/agh/conf:/opt/adguardhome/conf</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/agh/work:/opt/adguardhome/work</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="nt">internal</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nt">ipv4_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.20.20.20</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">13080:80</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">13000:3000</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">someapp</span><span class="p">:</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">      </span><span class="nt">internal</span><span class="p">:</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="nt">ipv4_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.20.0.2</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="nt">dns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.20.20.20</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agh</span>
+</code></pre></div>
+<h2 id="adguardhome-configuration">AdguardHome Configuration<a class="headerlink" href="#adguardhome-configuration" title="Permanent link">#</a></h2>
+<p>Go through the initial configuration on port 13000 and switch to port 13080 to access the web-ui.</p>
+<p>Settings &gt; General settings</p>
+<ul>
+<li>Block domains using filters and hosts files: Uncheck</li>
+<li>Enable log: Check</li>
+<li>Query logs rotation: 90 days</li>
+<li>Ignored domains: ||your-private-domain.tld^</li>
+<li>Enable statistics: Check</li>
+<li>Statistics retention: 90 days</li>
+<li>Ignored domains: ||your-private-domain.tld^</li>
+</ul>
+<p>Settings &gt; DNS settings</p>
+<ul>
+<li>Upstream DNS servers: <code>127.0.0.11</code>.</li>
+<li>Private reverse DNS servers: <code>127.0.0.11:53</code>.</li>
+<li>Use private reverse DNS resolvers: Check</li>
+<li>Rate limit: 0</li>
+</ul>
 
 
 
@@ -1116,7 +1194,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-12-15T07:25:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-12-15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-09T09:08:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-09</span>
   </span>
 
     
@@ -1126,7 +1204,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-23T14:14:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-09T09:08:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-09</span>
   </span>
 
     
@@ -1205,58 +1283,6 @@
 <footer class="md-footer">
 
   <!-- Link to previous and/or next page -->
-  
-    <nav
-      class="md-footer__inner md-grid"
-      aria-label="footer.title"
-    >
-
-      <!-- Link to previous page -->
-      
-        
-        <a
-          href="../firefox/"
-          class="md-footer__link md-footer__link--prev"
-          aria-label="Previous: Firefox"
-          rel="prev"
-        >
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Firefox
-            </div>
-          </div>
-        </a>
-      
-
-      <!-- Link to next page -->
-      
-        
-        <a
-          href="../network/"
-          class="md-footer__link md-footer__link--next"
-          aria-label="Next: Apps"
-          rel="next"
-        >
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Apps
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
 
   <!-- Further information -->
