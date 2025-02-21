@@ -114,6 +114,8 @@ nav:
     - SWAG: secure.md
     - Geoblock: geoblock.md
     - Jfscan: jfscan.md
+  - Games:
+    - Majestic: Majestic.md
   - Other:
     - ArchLinux: arch.md
     - iPhone: iphone.md
