@@ -1332,46 +1332,49 @@
 <h1 id="3x-ui">3x-ui<a class="headerlink" href="#3x-ui" title="Permanent link">#</a></h1>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>Don't pay for the "private" guides, no one will tell you anything more, because there is no more functionality.</p>
+<p>This page is under the complete re-write.</p>
 </div>
 <h2 id="setup-used">Setup used<a class="headerlink" href="#setup-used" title="Permanent link">#</a></h2>
 <p>The setup was used in my case:</p>
 <ul>
 <li>OS: Ubuntu 22.04.5</li>
-<li>3x-ui Version: 2.4.11</li>
+<li>3x-ui Version: 2.5.3</li>
 <li>VPS: <a href="https://aeza.net/?ref=572663">Aéza</a></li>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <p>As soon as we log into the system after purchasing a VPS, we execute the following commands:</p>
 <ol>
-<li>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+<li><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 </code></pre></div>
-to install all updates</p>
-</li>
+to install all updates</li>
+</ol>
+<p>if your system is minimized by default, unminimize it</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>unminimize<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoclean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>clean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>reboot
+</code></pre></div>
+<ol>
 <li>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-keyout<span class="w"> </span>/etc/ssl/certs/3x-ui.key<span class="w"> </span>-out<span class="w"> </span>/etc/ssl/certs/3x-ui.pem<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-sha256<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span>-nodes<span class="w"> </span>-new
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-keyout<span class="w"> </span>/etc/ssl/certs/3x-ui.key<span class="w"> </span>-out<span class="w"> </span>/etc/ssl/certs/3x-ui.pem<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-sha256<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span>-nodes<span class="w"> </span>-new
 </code></pre></div>
 where .pem is the public key, and .key is the private key.
 Just keep pressing Enter, no need to fill anything in.</p>
 </li>
 <li>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bash<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-Ls<span class="w"> </span>https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh<span class="o">)</span>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-Ls<span class="w"> </span>https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh<span class="o">)</span>
 </code></pre></div>
 to install the panel itself</p>
 </li>
 <li>
 <p><code>Would you like to customize the Panel Port settings? (If not, a random port will be applied)</code>
-we answer <span class="keys"><kbd class="key-n">N</kbd></span>.</p>
+we answer with <span class="keys"><kbd class="key-n">N</kbd></span>.</p>
 </li>
 <li>
 <p>Click on the link in the "Access URL" line to access our panel. Enter the credentials generated for us after the installation.</p>
 </li>
 <li>
 <p>Go to Panel Settings, then to the Authentication section, and change the login details. In the General section, specify the path to the already created Public &amp; Private keys: 
-<div class="highlight"><span class="filename">public key</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/etc/ssl/certs/3x-ui.pem
+<div class="highlight"><span class="filename">public key</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/etc/ssl/certs/3x-ui.pem
 </code></pre></div>
-<div class="highlight"><span class="filename">private key</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/etc/ssl/certs/3x-ui.key
+<div class="highlight"><span class="filename">private key</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/etc/ssl/certs/3x-ui.key
 </code></pre></div>
 Scroll up, click Save, and restart the panel.</p>
 </li>
@@ -1379,89 +1382,76 @@ Scroll up, click Save, and restart the panel.</p>
 <h2 id="securing-and-little-tweaks">Securing and little tweaks<a class="headerlink" href="#securing-and-little-tweaks" title="Permanent link">#</a></h2>
 <h3 id="ssh">Ssh<a class="headerlink" href="#ssh" title="Permanent link">#</a></h3>
 <p>Changing ssh port is required since ISPs scan for open ports and trying to detect such VPS machine, which you use as proxy.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nano<span class="w"> </span>/etc/ssh/sshd_config
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nano<span class="w"> </span>/etc/ssh/sshd_config
 </code></pre></div>
 <p>All you need to is uncomment line 14 and change your port. You can change the port to the one you like the most, just make sure it's not used by other services. Final result looks like:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">sshd_config</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span>
-<span class="normal"><a href="#__codelineno-6-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="hll">Port<span class="w"> </span><span class="m">222</span>
-</span><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="c1">#AddressFamily any</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="c1">#ListenAddress 0.0.0.0</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="c1">#ListenAddress ::</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">sshd_config</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="hll">Port<span class="w"> </span><span class="m">222</span>
+</span><a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="c1">#AddressFamily any</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="c1">#ListenAddress 0.0.0.0</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="c1">#ListenAddress ::</span>
 </code></pre></div></td></tr></table></div>
 <p>Then, you need to reload services:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>systemctl<span class="w"> </span>daemon-reload
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>systemctl<span class="w"> </span>daemon-reload
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure your ufw is <strong>NOT</strong> running, so you can connect after you decide to reconnect. If you forgot to do add new port to ufw, then access your VPS by using VNC and make changes.</p>
 </div>
 <h3 id="fail2ban">Fail2ban<a class="headerlink" href="#fail2ban" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>apt<span class="w"> </span>install<span class="w"> </span>fail2ban<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ufw<span class="w"> </span>-y
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>apt<span class="w"> </span>install<span class="w"> </span>fail2ban<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ufw<span class="w"> </span>-y
 </code></pre></div>
-<p>After runnig <code>touch /etc/fail2ban/jail.local &amp;&amp; nano /etc/fail2ban/jail.local</code>
-Copy and paste (ctrl + shift + v):</p>
-<div class="highlight"><span class="filename">jail.local</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">[</span>sshd<span class="o">]</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nv">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sshd
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nv">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>iptables<span class="o">[</span><span class="nv">name</span><span class="o">=</span>SSH,<span class="w"> </span><span class="nv">port</span><span class="o">=</span>ssh,<span class="w"> </span><span class="nv">protocol</span><span class="o">=</span>tcp<span class="o">]</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nv">logpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/log/auth.log
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nv">findtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">600</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nv">maxretry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nv">bantime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">43200</span>
+<p>Right after the packages got installed, create and edit fail2ban jail config
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>touch<span class="w"> </span>/etc/fail2ban/jail.local<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>nano<span class="w"> </span>/etc/fail2ban/jail.local<span class="sb">`</span>
+</code></pre></div></p>
+<p>Copy and paste the following <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-v">V</kbd></span></p>
+<div class="highlight"><span class="filename">jail.local</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">[</span>sshd<span class="o">]</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sshd
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nv">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>iptables<span class="o">[</span><span class="nv">name</span><span class="o">=</span>SSH,<span class="w"> </span><span class="nv">port</span><span class="o">=</span>ssh,<span class="w"> </span><span class="nv">protocol</span><span class="o">=</span>tcp<span class="o">]</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nv">logpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/log/auth.log
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nv">findtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">600</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nv">maxretry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nv">bantime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">43200</span>
 </code></pre></div>
 <p>Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>, then <span class="keys"><kbd class="key-y">Y</kbd></span>, and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to save and exit.</p>
 <p>In the terminal, type:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>x-ui
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>x-ui
 </code></pre></div>
 <p>Type 20 (IP Limit Management) and press <span class="keys"><kbd class="key-enter">Enter</kbd></span>. Then press 1 to install and type <span class="keys"><kbd class="key-y">Y</kbd></span>.</p>
 <h3 id="ufw">Ufw<a class="headerlink" href="#ufw" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nano<span class="w"> </span>/etc/ufw/before.rules
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>nano<span class="w"> </span>/etc/ufw/sysctl.conf
 </code></pre></div>
-<p>Change the values from <code>ACCEPT</code> to <code>DROP</code> and add new string, also with <code>DROP</code> value:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">before.rules</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-33">33</a></span>
-<span class="normal"><a href="#__codelineno-13-34">34</a></span>
-<span class="normal"><a href="#__codelineno-13-35">35</a></span>
-<span class="normal"><a href="#__codelineno-13-36">36</a></span>
-<span class="normal"><a href="#__codelineno-13-37">37</a></span>
-<span class="normal"><a href="#__codelineno-13-38">38</a></span>
-<span class="normal"><a href="#__codelineno-13-39">39</a></span>
-<span class="normal"><a href="#__codelineno-13-40">40</a></span>
-<span class="normal"><a href="#__codelineno-13-41">41</a></span>
-<span class="normal"><a href="#__codelineno-13-42">42</a></span>
-<span class="normal"><a href="#__codelineno-13-43">43</a></span>
-<span class="normal"><a href="#__codelineno-13-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="c1"># ok icmp codes for INPUT</span>
-<a id="__codelineno-13-34" name="__codelineno-13-34"></a>-A<span class="w"> </span>ufw-before-input<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>destination-unreachable<span class="w"> </span>-j<span class="w"> </span>DROP
-<a id="__codelineno-13-35" name="__codelineno-13-35"></a>-A<span class="w"> </span>ufw-before-input<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>time-exceeded<span class="w"> </span>-j<span class="w"> </span>DROP
-<a id="__codelineno-13-36" name="__codelineno-13-36"></a>-A<span class="w"> </span>ufw-before-input<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>parameter-problem<span class="w"> </span>-j<span class="w"> </span>DROP
-<a id="__codelineno-13-37" name="__codelineno-13-37"></a>-A<span class="w"> </span>ufw-before-input<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>echo-request<span class="w"> </span>-j<span class="w"> </span>DROP
-<a id="__codelineno-13-38" name="__codelineno-13-38"></a><span class="hll">-A<span class="w"> </span>ufw-before-input<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>source-quench<span class="w"> </span>-j<span class="w"> </span>DROP
-</span><a id="__codelineno-13-39" name="__codelineno-13-39"></a>
-<a id="__codelineno-13-40" name="__codelineno-13-40"></a><span class="c1"># ok icmp code for FORWARD</span>
-<a id="__codelineno-13-41" name="__codelineno-13-41"></a>-A<span class="w"> </span>ufw-before-forward<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>destination-unreachable<span class="w"> </span>-j<span class="w"> </span>DROP
-<a id="__codelineno-13-42" name="__codelineno-13-42"></a>-A<span class="w"> </span>ufw-before-forward<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>time-exceeded<span class="w"> </span>-j<span class="w"> </span>DROP
-<a id="__codelineno-13-43" name="__codelineno-13-43"></a>-A<span class="w"> </span>ufw-before-forward<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>parameter-problem<span class="w"> </span>-j<span class="w"> </span>DROP
-<a id="__codelineno-13-44" name="__codelineno-13-44"></a>-A<span class="w"> </span>ufw-before-forward<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>echo-request<span class="w"> </span>-j<span class="w"> </span>DROP
-</code></pre></div></td></tr></table></div>
+<p>Change the value in the following string from <code>0</code> to <code>1</code>, so services can't two way ping your server</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following can't be applied to Aeza's servers. Why? Aeza. However, I got this working for some days on Vienna/Finland machines.</p>
+</div>
+<div class="highlight"><span class="filename">sysctl.conf</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Ignore bogus ICMP errors</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>net/ipv4/icmp_echo_ignore_broadcasts<span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>net/ipv4/icmp_ignore_bogus_error_responses<span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="hll">net/ipv4/icmp_echo_ignore_all<span class="o">=</span><span class="m">1</span>
+</span></code></pre></div>
 <p>Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span>, then <span class="keys"><kbd class="key-y">Y</kbd></span>, and hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to save and exit.</p>
 <p>Restart the ufw:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ufw<span class="w"> </span>disable<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ufw<span class="w"> </span>disable<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
 </code></pre></div>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>apt<span class="w"> </span>install<span class="w"> </span>net-tools
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>apt<span class="w"> </span>install<span class="w"> </span>net-tools
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>netstat<span class="w"> </span>-ntlp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>LISTEN
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>netstat<span class="w"> </span>-ntlp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>LISTEN
 </code></pre></div>
 Open the ports you need (SSH, 3x-ui, 443, and any others if you have additional services).
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ufw<span class="w"> </span>disable<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">222</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">443</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="o">{</span>panel_port<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ufw<span class="w"> </span>disable<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">222</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">443</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="o">{</span>panel_port<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
 </code></pre></div></p>
 <h3 id="bbr">BBR<a class="headerlink" href="#bbr" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>In the terminal, type
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>x-ui
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>x-ui
 </code></pre></div></p>
 </li>
 <li>
@@ -1474,10 +1464,10 @@ Open the ports you need (SSH, 3x-ui, 443, and any others if you have additional 
 <p>This step is only required if you don't want to use the least secure connection. If you don't really care, move to the next step: <a href="https://wiki.amdcloud.kz/3x-ui/#reality">Reality</a>.</p>
 </div>
 <p>First, let's open open <code>80/tcp</code> for some time:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp
 </code></pre></div>
 <p>Next, move the <strong>x-ui</strong> panel:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>x-ui
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>x-ui
 </code></pre></div>
 <p>and then select <strong>SSL Management (18)</strong>. Press <strong>1</strong> to <strong>Get SSL</strong>.</p>
 <div class="admonition warning">
@@ -1486,9 +1476,11 @@ Open the ports you need (SSH, 3x-ui, 443, and any others if you have additional 
 </div>
 <p>Enter your domain, default port - 80, wait until the certificate is created and then agree to set certificate for the panel.</p>
 <p>Leave port <code>80/tcp</code> is not secure, so let's make a crontab for it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>crontab<span class="w"> </span>-e
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>Europe/Moscow
 </code></pre></div>
-<div class="highlight"><span class="filename">crontab</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="m">0</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span>/acme.sh<span class="w"> </span>--cron<span class="w"> </span>--home<span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">80</span>/tcp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>crontab<span class="w"> </span>-e
+</code></pre></div>
+<div class="highlight"><span class="filename">crontab</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="m">0</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span>/acme.sh<span class="w"> </span>--cron<span class="w"> </span>--home<span class="w"> </span><span class="s2">&quot;/root/.acme.sh&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">80</span>/tcp
 </code></pre></div>
 <h2 id="setting-up">Setting up<a class="headerlink" href="#setting-up" title="Permanent link">#</a></h2>
 <h3 id="reality">Reality<a class="headerlink" href="#reality" title="Permanent link">#</a></h3>
@@ -1519,26 +1511,26 @@ You are supposed to test it yourself because it works differently on each VPS, I
 <p>Click on the QR code icon next to the created client, then click the QR code to copy it to the clipboard, and paste it into Nekoray/Streisand.</p>
 <h3 id="tls">TLS<a class="headerlink" href="#tls" title="Permanent link">#</a></h3>
 <p>Install nginx first:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>apt<span class="w"> </span>install<span class="w"> </span>nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>apt<span class="w"> </span>install<span class="w"> </span>nginx
 </code></pre></div>
 <p>and then change its default config:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>nano<span class="w"> </span>/etc/nginx/sites-enabled/default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>nano<span class="w"> </span>/etc/nginx/sites-enabled/default
 </code></pre></div>
 <p>Make the changes to file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Default server configuration</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1">#</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>server<span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">        </span>listen<span class="w"> </span><span class="m">127</span>.0.0.1:8080<span class="w"> </span>default_server<span class="p">;</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
-<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">        </span><span class="c1"># SSL configuration</span>
-<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">        </span><span class="c1">#</span>
-<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">        </span><span class="c1"># listen 443 ssl default_server;</span>
-<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">        </span><span class="c1"># listen [::]:443 ssl default_server;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># Default server configuration</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1">#</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>server<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">        </span>listen<span class="w"> </span><span class="m">127</span>.0.0.1:8080<span class="w"> </span>default_server<span class="p">;</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">        </span><span class="c1"># SSL configuration</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">        </span><span class="c1">#</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">        </span><span class="c1"># listen 443 ssl default_server;</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">        </span><span class="c1"># listen [::]:443 ssl default_server;</span>
 </code></pre></div>
 <p>Test the nginx by using:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>nginx<span class="w"> </span>-t
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>nginx<span class="w"> </span>-t
 </code></pre></div></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
 </code></pre></div>
 <p>Settings inside the 3x-ui panel for inbound:  </p>
 <ul>
@@ -1551,15 +1543,15 @@ You are supposed to test it yourself because it works differently on each VPS, I
 <li>Sniffing: <code>Enabled</code> (?)  </li>
 </ul>
 <p>Create a webpage for correct work. Let's ask an AI to create a webpage for us.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>nano<span class="w"> </span>/var/www/html/index.html
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>nano<span class="w"> </span>/var/www/html/index.html
 </code></pre></div>
 <p>Simply paste any html code and save it.  </p>
 <p>After its all done we need to close port <code>80/tcp</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">80</span>/tcp
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>ufw<span class="w"> </span>deny<span class="w"> </span><span class="m">80</span>/tcp
 </code></pre></div>
 <h2 id="clean-up">Clean-up<a class="headerlink" href="#clean-up" title="Permanent link">#</a></h2>
 <p>Finally, clean up, reboot, and you're ready to use it.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoclean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>clean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>reboot
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoclean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>clean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>reboot
 </code></pre></div></p>
 
 
@@ -1583,7 +1575,7 @@ You are supposed to test it yourself because it works differently on each VPS, I
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-08T15:08:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-08</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-03-04T13:03:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-03-04</span>
   </span>
 
     
